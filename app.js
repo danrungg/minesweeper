@@ -134,6 +134,19 @@ function checkWin() {
 			alert("WINRAR");
 		}, 100);
 		container.style.pointerEvents = "none";
+		squares.forEach((square) => {
+			square.classList.remove("hidden");
+
+			if (
+				square.classList.contains("bomb") ||
+				square.classList.contains("Number") ||
+				square.classList.contains("blanc")
+			) {
+				return;
+			} else {
+				square.classList.add("blanc");
+			}
+		});
 	}
 }
 
@@ -156,6 +169,16 @@ function gameOver() {
 	container.style.pointerEvents = "none";
 	squares.forEach((square) => {
 		square.classList.remove("hidden");
+
+		if (
+			square.classList.contains("bomb") ||
+			square.classList.contains("Number") ||
+			square.classList.contains("blanc")
+		) {
+			return;
+		} else {
+			square.classList.add("blanc");
+		}
 	});
 }
 
