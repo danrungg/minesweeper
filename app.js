@@ -21,15 +21,19 @@ function generateGrid(numberOfSquares) {
 }
 generateGrid(numberOfSquares);
 
-// rondomize bombs location
+function generateBombs() {
+	while (bombLocations.length < numberOfBombs) {
+		let temp = `${Math.floor(Math.random() * 9) + 1}-${
+			Math.floor(Math.random() * 9) + 1
+		}`;
 
-let test = [];
-for (let i = 0; i < numberOfBombs; i++) {
-	let temp = `${Math.floor(Math.random() * 9) + 1}-${
-		Math.floor(Math.random() * 9) + 1
-	}`;
-	bombLocations.push(temp);
+		if (!bombLocations.includes(temp)) {
+			bombLocations.push(temp);
+		}
+	}
 }
+
+generateBombs();
 
 // add bomb to classlist
 let squares = document.querySelectorAll(".square");
