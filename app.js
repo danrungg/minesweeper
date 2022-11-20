@@ -1,6 +1,6 @@
-let bombLocations = ["2-2", "2-4", "2-3", "5-5", "4-3", "6-8"]; // BOMB LOCATION
+let bombLocations = []; // BOMB LOCATION
 let numberOfSquares = 9; // NUMBER OF SQUARES
-let numberOfBombs = bombLocations.length;
+let numberOfBombs = 10;
 let regex = /([0-9]+)(-)([0-9]+)/;
 let correctGuesses = 0;
 
@@ -20,6 +20,16 @@ function generateGrid(numberOfSquares) {
 	container.style.gridTemplateRows = `repeat(${numberOfSquares}, 1fr)`;
 }
 generateGrid(numberOfSquares);
+
+// rondomize bombs location
+
+let test = [];
+for (let i = 0; i < numberOfBombs; i++) {
+	let temp = `${Math.floor(Math.random() * 9) + 1}-${
+		Math.floor(Math.random() * 9) + 1
+	}`;
+	bombLocations.push(temp);
+}
 
 // add bomb to classlist
 let squares = document.querySelectorAll(".square");
