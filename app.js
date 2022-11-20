@@ -150,6 +150,9 @@ function gameOver() {
 	}, 100);
 	// after gameover prevent player from clicking
 	container.style.pointerEvents = "none";
+	squares.forEach((square) => {
+		square.classList.remove("hidden");
+	});
 }
 
 // revealBombs function, display all bombs
