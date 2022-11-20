@@ -1,3 +1,27 @@
+@font-face {
+	font-family: "Domine";
+	src: url("src/fonts/domine-v19-latin-regular.woff2") format("woff2"),
+		url("src/fonts/domine-v19-latin-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Domine";
+	src: url("src/fonts/domine-v19-latin-700.woff2") format("woff2"),
+		url("src/fonts/domine-v19-latin-700.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Monoton";
+	src: url("src/fonts/monoton-v15-latin-regular.woff2") format("woff2"),
+		url("src/fonts/monoton-v15-latin-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,66 +29,85 @@
 }
 
 body {
-	background-color: rgb(36, 36, 36);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: "Domine";
+	font-weight: 400;
+	background-color: #32908f;
+}
+
+.header {
+	height: 200px;
+	position: absolute;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Monoton;
+	font-size: 100px;
+	color: yellow;
+}
+
+.game {
+	flex: 1;
+	display: grid;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
-	height: 400px;
-	width: 400px;
-	border: 1px solid rgb(37, 34, 34);
+	height: 500px;
+	width: 500px;
+	padding: 1px;
+	background-color: #32908f;
+	padding: 15px;
+	border: 2.8px solid yellow;
 	display: grid;
 }
 
 .square {
-	border: 0.1px lightgray solid;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 1.4rem;
+	border: 1px solid white;
+	margin: 0px;
 }
 
 .flag {
-	background-color: beige !important;
+	background-color: rgb(57, 125, 197) !important;
+	border: 1px solid white !important;
 }
 
 .flag::after {
 	content: "🏴‍☠️" !important;
 }
 
-.number {
-	background-color: lightblue;
+.Number {
+	background-color: #cdcdcd;
+	font-family: inherit;
+	font-weight: 700;
 }
 
-._1 {
-	background-color: blueviolet;
-}
 ._1::after {
 	content: "1";
 }
 
-._2 {
-	background-color: greenyellow;
-}
 ._2::after {
 	content: "2";
 }
 
-._3 {
-	background-color: blue;
-}
 ._3::after {
 	content: "3";
 }
 
-._4 {
-	background-color: red;
-}
 ._4::after {
 	content: "4";
 }
 
 .blanc {
-	background-color: aliceblue !important;
+	background-color: #cdcdcd !important;
 }
 
 .hidden::after {
@@ -72,5 +115,18 @@ body {
 }
 
 .hidden {
-	background-color: gray;
+	background-color: #898989;
+	border: 2px solid;
+	border-top-color: #ffffff;
+	border-right-color: #7b7b7b;
+	border-bottom-color: #7b7b7b;
+	border-left-color: #ffffff;
+}
+
+.footer {
+	height: 72px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightgray;
 }
