@@ -188,6 +188,16 @@ function revealBombs() {
 		if (square.classList.contains("bomb")) {
 			square.classList.toggle("hidden");
 			square.style.background = "#ee4266";
+			console.log(square.classList);
+
+			if (
+				square.classList.contains("bomb") &&
+				square.classList.contains("flag")
+			) {
+				square.classList.remove("flag");
+				square.style.background = "rgb(57, 125, 197)";
+			}
+
 			square.innerText = "💣";
 		}
 	});
