@@ -3,6 +3,7 @@ let numberOfSquares = 9; // NUMBER OF SQUARES
 let numberOfBombs = 10;
 let regex = /([0-9]+)(-)([0-9]+)/;
 let correctGuesses = 0;
+let timerStarted = false;
 
 // INITIAL GENERATION
 
@@ -114,6 +115,17 @@ function getKeyByValue(object, value) {
 
 // set flag function and toggle flag class
 function setFlag(field) {
+	if (field.classList.contains("blanc")) {
+		return;
+	}
+
+	if (
+		field.classList.contains("Number") &&
+		!field.classList.contains("hidden")
+	) {
+		field.classList.remove("flag");
+		return;
+	}
 	field.classList.toggle("flag");
 
 	if (field.classList.contains("flag") && field.classList.contains("bomb")) {
@@ -161,6 +173,8 @@ function checkBomb(field) {
 function gameOver() {
 	// runf function reveal bombs
 	revealBombs();
+	stopCountown();
+
 	// settimeout so can revealBombs function can run
 	setTimeout(function () {
 		alert("GAME OVER");
@@ -188,7 +202,6 @@ function revealBombs() {
 		if (square.classList.contains("bomb")) {
 			square.classList.toggle("hidden");
 			square.style.background = "#ee4266";
-			console.log(square.classList);
 
 			if (
 				square.classList.contains("bomb") &&
@@ -256,6 +269,25 @@ function revealBlancFields(firstNumber, secondNumber) {
 	}
 }
 
+let clear;
+
+function startCountdown() {
+	if (timerStarted === true) return;
+	let seconds = 0;
+	let el = document.querySelector(".timer");
+
+	function incrementSeconds() {
+		seconds += 1;
+		el.innerText = "Timer: " + seconds;
+	}
+
+	clear = setInterval(incrementSeconds, 1000);
+}
+
+function stopCountown() {
+	clearInterval(clear);
+}
+
 // EVENT LISTENERS
 container.addEventListener("contextmenu", (e) => {
 	setFlag(e.target);
@@ -267,8 +299,9 @@ container.addEventListener("contextmenu", (e) => {
 });
 
 container.addEventListener("click", (e) => {
+	startCountdown();
+	timerStarted = true;
 	checkBomb(e.target);
-
 	let firstNumber = Number(regex.exec(e.target.classList[1])[1]);
 	let secondNumber = Number(regex.exec(e.target.classList[1])[3]);
 	revealBlancFields(firstNumber, secondNumber);
