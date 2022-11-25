@@ -143,8 +143,9 @@ function setFlag(field) {
 function checkWin() {
 	if (correctGuesses === numberOfBombs) {
 		setTimeout(function () {
-			alert("WINRAR");
+			alert("YOU WON!!!");
 		}, 100);
+		stopCountown();
 		container.style.pointerEvents = "none";
 		squares.forEach((square) => {
 			square.classList.remove("hidden");
