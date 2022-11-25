@@ -1,4 +1,4 @@
-# Etch A Sketch
+# Minesweeper
 
 [Minesweeper](https://de.wikipedia.org/wiki/Minesweeper) created with HTML, CSS and Javascript 🚩💣
 
