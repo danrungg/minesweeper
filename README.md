@@ -6,6 +6,6 @@ The rules for Minesweeper can be found [here](https://minesweepergame.com/strate
 
 <img src="src/screenshot.png" alt="screenshot of a minesweeper game" width="500"/>
 
-live preview 👉 https://darungg.github.io/minesweeper/
+live preview 👉 https://danrungg.github.io/minesweeper/
 
 have fun!
